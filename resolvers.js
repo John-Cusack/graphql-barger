@@ -14,7 +14,6 @@ exports.resolvers = {
                 category,
                 username
             }).save()
-
             return newRecipe;
         }
     }
