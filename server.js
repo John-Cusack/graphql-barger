@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
 require('dotenv').config({path: 'variables.env'})
+const cors = require('cors')
 const Recipe = require('./models/Recipe')
 const User = require('./models/User')
 
@@ -23,6 +24,12 @@ mongoose
     .catch(err => console.error(err))
 
 const app = express();
+const corsOption = {
+    origin: 'http://localhost:3000',
+    credentials: true
+}
+
+app.use(cors(corsOption))
 app.use('/graphiql', graphiqlExpress({endpointURL: '/graphql'}))
 //connect schemas with GraphQL
 app.use('/graphql',

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import './App.css';
 
 import {Query} from 'react-apollo'
@@ -13,7 +13,6 @@ const App = () => (
         if (error) return <div>Error</div>
         console.log(data)
         return(
-          
           <p>Recipes</p>
         )
       }}
